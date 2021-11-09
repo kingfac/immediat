@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illiminate\Support\Facades\Storage;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/* Route::get('/dw', function(){
+    //$file = Storage::url('a.zip');
+    $file = public_path('storage/a.zip');
+    return response()->download($file);
+}); */
 
 Route::get('/', function () {
     return view('welcome');

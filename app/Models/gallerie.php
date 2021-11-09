@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class gallerie extends Model
 {
+    protected $fillable = ['titre'];
     use HasFactory;
 }

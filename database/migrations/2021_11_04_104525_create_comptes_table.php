@@ -15,6 +15,9 @@ class CreateComptesTable extends Migration
     {
         Schema::create('comptes', function (Blueprint $table) {
             $table->id();
+            $table->string('icon');
+            $table->string('lib');
+            $table->string('url');
             $table->timestamps();
         });
     }

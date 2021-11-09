@@ -15,6 +15,20 @@ class CreateBiensTable extends Migration
     {
         Schema::create('biens', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->text('description');
+            $table->string('salon');
+            $table->integer('chambre');
+            $table->string('etat');
+            $table->string('equipe');
+            $table->string('adresse');
+            $table->string('prix');
+            $table->string('devise');
+            $table->string('valide');
+            $table->foreignId('client_id')->constrained('clients');
+            $table->string('ville');
+            $table->foreignId('type_annonce_id')->constrained('type_annonces');
+            $table->foreignId('type_bien_id')->constrained('type_biens');
             $table->timestamps();
         });
     }

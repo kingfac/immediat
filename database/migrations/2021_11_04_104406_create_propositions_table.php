@@ -15,6 +15,12 @@ class CreatePropositionsTable extends Migration
     {
         Schema::create('propositions', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('message');
+            $table->foreignId('bien_id')->constrained('biens');
             $table->timestamps();
         });
     }

@@ -15,6 +15,8 @@ class CreateCaractBiensTable extends Migration
     {
         Schema::create('caract_biens', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bien_id')->constrained('biens');
+            $table->foreignId('caract_id')->constrained('caracts');
             $table->timestamps();
         });
     }
