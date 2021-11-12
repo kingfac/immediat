@@ -10,6 +10,7 @@ use App\Models\bien;
 use App\Models\caract;
 use App\Models\type_annonce;
 use App\Models\type_bien;
+use App\Models\caract_bien;
 
 
 class VBien extends Component
@@ -50,16 +51,50 @@ class VBien extends Component
 
     public function store(){
         //if($this->)
-        $valide = $this->validate([
+        $validate = $this->validate([
             'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-            'titre' => 'required',
-        ])
+            'description' => 'required',
+            'salon' => 'required',
+            'chambre' => 'required',
+            'etat' => 'required',
+            'adresse' => 'required',
+            'prix' => 'required',
+            'devise' => 'required',
+            'valide' => 'required',
+            'ville' => 'required',
+            'type_annonce_id' => 'required',
+            'type_bien_id' => 'required',
+        ]);   
+
+        $this->validate([
+            'galleries' => 'required'
+        ]);
+
+        $record = bien::create($validate);
+        $idb = $record->id();
+        if(count($this->caract_bien) > 0) {
+            $cb = [];
+            for ($i=0; $i < count($this->caract_bien); $i++) { 
+                # code...
+                array_push($cb, array('bien_id'=>$idb, 'caract_id'=>$this->caract_bien[$i]));
+            }
+            caract_bien::insert($cb);
+        }
+
+        for ($i=0; $i < $this->galleries; $i++) { 
+            # code...
+            $this->galleries[$i]->storePubliclyAs('public/bines/'.$idb.'/'.$i.'.png');
+            $this->emitSelf('imgUpdate');
+        }
+
+        session()->flash('message', 'Bien enregistré avec succès');
+        $this->emit('Added');
+        $this->dispatchBrowserEvent('Added');
+        $this->resetFields();
+
+    }
+
+    public function resetFields(){
+
     }
 }

@@ -22,10 +22,10 @@ class CreateBiensTable extends Migration
             $table->boolean('etat')->default(false);
             $table->boolean('equipe')->default(false);
             $table->string('adresse');
-            $table->string('prix')->default('Aucun');
+            $table->integer('prix')->default('Aucun');
             $table->string('devise');
             $table->boolean('valide')->default(false);
-            $table->foreignId('client_id')->constrained('clients')->nullable();
+            $table->foreignId('client_id')->nullable()->constrained('clients');
             $table->string('ville');
             $table->foreignId('type_annonce_id')->constrained('type_annonces');
             $table->foreignId('type_bien_id')->constrained('type_biens');

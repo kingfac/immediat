@@ -23,7 +23,7 @@
                     <select name="" id="" class="w-full py-2 border" wire:model="type_bien_id">
                         <option value="">Type Bien</option>
                         @foreach ($type_bs as $tb)
-                            <option>{{$tb->lib}}</option>
+                            <option value="{{$tb->id}}">{{$tb->lib}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -59,10 +59,10 @@
                 </div>
                 <input type="text" class="flex-1 w-full p-2 border rounded-lg" placeholder="Ville" wire:model="ville">
                 <div class="flex-1">
-                    <select name="" id="" class="w-full py-2 border" wire:model="type_annoce_id">
+                    <select name="" id="" class="w-full py-2 border" wire:model="type_annonce_id">
                         <option value="">Type annonce</option>
                         @foreach ($type_as as $ta)
-                            <option>{{$ta->lib}}</option>
+                            <option value="{{$tb->id}}">{{$ta->lib}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -86,7 +86,16 @@
                 </div>
             </div>
             <div class="flex-1">
-                
+                glodi
+                @if ($errors->any())
+                <div class="p-2 bg-red-300 ">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
             </div>
         </div>
     </div>
