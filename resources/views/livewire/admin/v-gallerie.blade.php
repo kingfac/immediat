@@ -4,6 +4,7 @@
     save : true,
     update : false,
     del : false,
+    notifU : false
 }">
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
     <div class="flex flex-col justify-end">
@@ -90,4 +91,29 @@
             <h1 class="font-extrabold text-9xl">?</h1>
         </div>
     </div>
+    <div class="absolute top-0 left-0 w-full bg-black cacher" id="notif">
+        <div class="flex p-2 text-white bg-purple-600">
+            <p class="flex-1">{{ session('message') }}</p>
+            <button>X</button>
+        </div>
+    </div>
+    {{-- @if (session()->has('message'))
+    @endif --}}
+
+    <script>
+        var a = document.querySelector('#notif');
+        window.addEventListener('Updated', event => {
+            a.style.transform = "scale(0.2)";
+            setTimeout(() => {
+                a.style.transform = "scale(0.6)";
+                setTimeout(() => {
+                    a.style.transform = "scale(1)";
+                }, 100);
+            }, 100);
+            setTimeout(() => {
+                a.style.transform = "scale(0)";
+            }, 3000);
+        });
+            
+    </script>
 </div>

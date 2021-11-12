@@ -36,3 +36,19 @@
     border-radius: 100px 0px 0px 100px;
     
 }
+
+.cacher {
+    transform: scale(0);
+}
+
+/* Toggle A */
+input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+  }
+  
+  /* Toggle B */
+  input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+  }

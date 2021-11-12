@@ -13,6 +13,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{asset('css/customcss.css')}}">
+        <link rel="stylesheet" href="{{asset('css/toggle.css')}}">
         @livewireStyles
 
         <!-- Scripts -->
@@ -36,9 +37,27 @@
                 {{ $slot }}
             </main>
         </div>
+        {{-- <script>
+            var notif = document.querySelector('#notif');
+            window.addEventListener('Updated', event => {
+                notif.style.transform = "scale(0.2)";
+                setTimeout(() => {
+                    notif.style.transform = "scale(0.6)";
+                    setTimeout(() => {
+                        notif.style.transform = "scale(1)";
+                    }, 100);
+                }, 100);
+                setTimeout(() => {
+                    notif.style.transform = "scale(0)";
+                }, 3000);
+            });
+                
+        </script> --}}
+        
 
         @stack('modals')
 
         @livewireScripts
+        
     </body>
 </html>

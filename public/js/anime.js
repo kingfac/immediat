@@ -9,6 +9,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 } );
 
 
+
 /* 
 splide.on( 'active', function(e) {  
     const element = document.querySelectorAll('.title');

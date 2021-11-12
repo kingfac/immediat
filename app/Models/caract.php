@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class caract extends Model
 {
+    protected $fillable = ['lib'];
     use HasFactory;
 }

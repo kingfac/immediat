@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class type_annonce extends Model
 {
+    protected $fillable = ['lib'];
     use HasFactory;
 }

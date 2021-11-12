@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class actu extends Model
 {
+    protected $fillable = ['actu', 'url'];
     use HasFactory;
 }

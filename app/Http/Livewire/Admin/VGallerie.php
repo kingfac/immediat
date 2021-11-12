@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 use Illiminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
+//use Illuminate\Console\Command;
 
 
 use Livewire\Component;
@@ -49,6 +50,7 @@ class VGallerie extends Component
 
     public function resetFields(){
         $this->titre = '';
+        //Artisan::call('cache:clear');
     }
 
     public function charger($data){
@@ -77,6 +79,7 @@ class VGallerie extends Component
             $this->emit('Updated');
             $this->dispatchBrowserEvent('Updated');
         }
+        $this->resetFields();
     }
 
     public function del(){
@@ -87,6 +90,7 @@ class VGallerie extends Component
         $this->dispatchBrowserEvent('Deleted');
         ///$this->Store->storePubliclyAs('public/gallerie/', $this->selectedId.'.png');
         Storage::delete('public/gallerie/'.$this->selectedId.'.png');   
+        $this->resetFields();
     }
 
 }

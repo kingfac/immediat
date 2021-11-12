@@ -8,7 +8,7 @@
     <div class="flex h-screen px-10 pt-10" 
         x-data="
         {
-            nav : [false, true, false, false, false, false, false, false],
+            nav : [false, false, false, false, false, false, true, false],
             active(id){
                 if(this.nav[id] != true){
                     this.nav[id] = true;
@@ -78,7 +78,7 @@
                     <livewire:admin.v-motivation>
                 </div>
                 <div x-show="nav[5]">
-                    <livewire:admin.v-actualite>
+                    <livewire:admin.v-actu>
                 </div>
                 <div x-show="nav[6]">
                     <livewire:admin.v-bien>
